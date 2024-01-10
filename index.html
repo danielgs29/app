@@ -29,9 +29,9 @@
     // Configuración de AppStream Embed
     const appstreamContainer = document.getElementById('appstream-container');
     const appstreamOptions = {
-        sessionURL: 'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNDg4OTE3NyIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjAwMCIsImNhdGFsb2dTb3VyY2UiOiJzdGFjay9JbnRlcm5ldFN0YWNrIiwiZmxlZXRSZWYiOiJmbGVldC9JbnRlcm5ldFN0YWNrLWZsZWV0IiwiYXBwbGljYXRpb25JZCI6IiIsInVzZXJDb250ZXh0IjoiIiwibWF4VXNlckR1cmF0aW9uSW5TZWNzIjoiNTc2MDAifQ%3D%3D&signature=4RhwGw8hh2FcNi3n2nEKo3XkpGvNT%2BY8nYm9WpO0FCE%3D', 
+        sessionURL: 'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNDg4ODg5NCIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6Ijk5OSIsImNhdGFsb2dTb3VyY2UiOiJzdGFjay9JbnRlcm5ldFN0YWNrIiwiZmxlZXRSZWYiOiJmbGVldC9JbnRlcm5ldFN0YWNrLWZsZWV0IiwiYXBwbGljYXRpb25JZCI6IiIsInVzZXJDb250ZXh0IjoiIiwibWF4VXNlckR1cmF0aW9uSW5TZWNzIjoiNTc2MDAifQ%3D%3D&signature=QRumiwpfBjgFEDEWcXcoRiLCc85g4CmiFChv3HttJ10%3D', 
         userInterfaceConfig: {
-            // No incluir HIDDEN_ELEMENTS para mostrar todos los elementos de la interfaz
+            
         }
         // ... Otras configuraciones según la documentación
     };
@@ -39,11 +39,7 @@
     // Inicializar AppStream Embed con opciones de interfaz de usuario
     const appstreamEmbed = new AppStream.Embed("appstream-container", appstreamOptions);
 
-    appstreamEmbed.startSession(appstreamContainer).catch(error => {
-        console.error('Error al iniciar la sesión de AppStream Embed:', error);
-    });
 </script>
-
 
 </body>
 </html>
