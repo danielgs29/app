@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página con AppStream Embebido</title>
+    <title>AppStream</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,9 +29,9 @@
     // Configuración de AppStream Embed
     const appstreamContainer = document.getElementById('appstream-container');
     const appstreamOptions = {
-        sessionURL:'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNDkwMDE2OSIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6Ijk5OSIsImNhdGFsb2dTb3VyY2UiOiJzdGFjay9JbnRlcm5ldFN0YWNrIiwiZmxlZXRSZWYiOiJmbGVldC9JbnRlcm5ldFN0YWNrLWZsZWV0IiwiYXBwbGljYXRpb25JZCI6IiIsInVzZXJDb250ZXh0IjoiIiwibWF4VXNlckR1cmF0aW9uSW5TZWNzIjoiNTc2MDAifQ%3D%3D&signature=9KSd2E2fg9Pm1wAVtapy96BVphygR30WQvjPC4%2BiB5g%3D', 
+        sessionURL:'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNDkwMjA1NiIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6Ijc3NyIsImNhdGFsb2dTb3VyY2UiOiJzdGFjay9JbnRlcm5ldFN0YWNrIiwiZmxlZXRSZWYiOiJmbGVldC9JbnRlcm5ldFN0YWNrLWZsZWV0IiwiYXBwbGljYXRpb25JZCI6IiIsInVzZXJDb250ZXh0IjoiIiwibWF4VXNlckR1cmF0aW9uSW5TZWNzIjoiNTc2MDAifQ%3D%3D&signature=2KMlUh2TCw3YDZCkQtOnE9uzaiy%2FoWcOyUCt2TMSe4k%3D', 
         userInterfaceConfig: {
-            
+            // Configuración adicional  tus necesidades
         }
         // ... Otras configuraciones según la documentación
     };
@@ -39,9 +39,14 @@
     // Inicializar AppStream Embed con opciones de interfaz de usuario
     const appstreamEmbed = new AppStream.Embed("appstream-container", appstreamOptions);
 
+    // Obtener el iframe y ajustar el atributo "sandbox"
+    const iframe = document.querySelector('#appstream-container iframe');
+    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-forms');
+
 </script>
 
 </body>
 </html>
+
 
 
