@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Permissions-Policy" content="camera=(self)">
-
-    <title>AppStream</title>
+    <title>Página con AppStream Embebido</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,30 +18,35 @@
         }
     </style>
     <!-- Incluir el SDK de AppStream Embed -->
-    
+    <script type="text/javascript" src="./appstream_embed.js"></script>
 </head>
 <body>
 
 <div id="appstream-container"></div>
-<script type="text/javascript" src="./appstream_embed.js"> </script>
 
 <script>
     // Configuración de AppStream Embed
     const appstreamContainer = document.getElementById('appstream-container');
     const appstreamOptions = {
-        sessionURL:'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNDkwMzU1NiIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjY1NCIsImNhdGFsb2dTb3VyY2UiOiJzdGFjay9Gcm9udGVuZFRlc3RTdGFjayIsImZsZWV0UmVmIjoiZmxlZXQvRnJvbnRlbmRUZXN0RmxlZXQiLCJhcHBsaWNhdGlvbklkIjoiIiwidXNlckNvbnRleHQiOiIiLCJtYXhVc2VyRHVyYXRpb25JblNlY3MiOiI1NzYwMCJ9&signature=A458ppBaPJku3whGHYk6gYuzRdYgCLsjaU%2B80T51UVY%3D', 
+        sessionURL: 'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNDkwNDI4NyIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjY3NiIsImNhdGFsb2dTb3VyY2UiOiJzdGFjay9JbnRlcm5ldFN0YWNrIiwiZmxlZXRSZWYiOiJmbGVldC9JbnRlcm5ldFN0YWNrLWZsZWV0IiwiYXBwbGljYXRpb25JZCI6IiIsInVzZXJDb250ZXh0IjoiIiwibWF4VXNlckR1cmF0aW9uSW5TZWNzIjoiNTc2MDAifQ%3D%3D&signature=d0V4SjMl33wE6jKzWWU6uVkE9CcyfcxHZcL4bcVDK9g%3D',
         userInterfaceConfig: {
             // Configuración adicional según tus necesidades   
+        },
+        permissions: {
+            [AppStream.Embed.PermissionsRule.ALLOW]: ['webcam'], // Permite el acceso a la cámara
+            // Agrega otras configuraciones de permisos según sea necesario
         }
         // ... Otras configuraciones según la documentación
     };
 
     // Inicializar AppStream Embed con opciones de interfaz de usuario
     const appstreamEmbed = new AppStream.Embed("appstream-container", appstreamOptions);
+
 </script>
 
 </body>
 </html>
+
 
 
 
