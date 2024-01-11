@@ -13,6 +13,19 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            background-color: #3498db; /* Color azul de fondo */
+        }
+
+        #container-wrapper {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        #left-blue-bar,
+        #right-blue-bar {
+            width: calc((100% - 75%) / 2); /* Calcula el espacio a ambos lados del contenedor de AppStream */
+            background-color: #3498db; /* Color azul de fondo */
         }
 
         #appstream-container {
@@ -25,7 +38,11 @@
     <script type="text/javascript" src="./appstream_embed.js"></script>
 </head>
 <body>
-    <div id="appstream-container"></div>
+    <div id="container-wrapper">
+        <div id="left-blue-bar"></div>
+        <div id="appstream-container"></div>
+        <div id="right-blue-bar"></div>
+    </div>
 
     <script>
         // Configuración de AppStream Embed
@@ -45,3 +62,4 @@
     </script>
 </body>
 </html>
+
