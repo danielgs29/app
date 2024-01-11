@@ -9,66 +9,44 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            overflow: hidden;
-            background-color: orange; /* Fondo naranja para el cuerpo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
-
+    
         #appstream-container {
             width: 75%;
-            height: 100vh;
+            height: 75vh; /* Ajusta según tus necesidades */
             overflow: hidden;
-            float: left;
-        }
-
-        #orange-area {
-            width: 25%;
-            height: 100vh;
-            float: left;
-            background-color: orange; /* Fondo naranja para el área lateral */
-        }
-
-        #open-fullscreen {
-            display: block;
-            margin: 10px;
-            padding: 10px;
-            background-color: #3498db;
-            color: #fff;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
         }
     </style>
     <!-- Incluir el SDK de AppStream Embed -->
     <script type="text/javascript" src="./appstream_embed.js"></script>
 </head>
 <body>
-    <h1>hola</h1>
-    <div id="appstream-container"></div>
-    <div id="orange-area"></div>
+<h1>hola</h1>
+<div id="appstream-container"></div>
 
-    <a id="open-fullscreen" onclick="openFullscreen()">Abrir en pantalla completa</a>
-
-    <script>
-        // Configuración de AppStream Embed
-        const appstreamContainer = document.getElementById('appstream-container');
-        const appstreamOptions = {
-            sessionURL: 'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNDkwNDI4NyIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjY3NiIsImNhdGFsb2dTb3VyY2UiOiJzdGFjay9JbnRlcm5ldFN0YWNrIiwiZmxlZXRSZWYiOiJmbGVldC9JbnRlcm5ldFN0YWNrLWZsZWV0IiwiYXBwbGljYXRpb25JZCI6IiIsInVzZXJDb250ZXh0IjoiIiwibWF4VXNlckR1cmF0aW9uSW5TZWNzIjoiNTc2MDAifQ%3D%3D&signature=d0V4SjMl33wE6jKzWWU6uVkE9CcyfcxHZcL4bcVDK9g%3D',
-            userInterfaceConfig: {},
-            permissions: {
-                [AppStream.Embed.Options.PERMISSIONS]: ['webcam'],
-            }
-        };
-
-
-        // Función para abrir en pantalla completa
-        function openFullscreen() {
-            const fullscreenURL = appstreamOptions.sessionURL + '&fullscreen=true';
-            window.open(fullscreenURL, '_blank', 'fullscreen=yes');
+<script>
+    // Configuración de AppStream Embed
+    const appstreamContainer = document.getElementById('appstream-container');
+    const appstreamOptions = {
+        sessionURL: 'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNDkwNDI4NyIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjY3NiIsImNhdGFsb2dTb3VyY2UiOiJzdGFjay9JbnRlcm5ldFN0YWNrIiwiZmxlZXRSZWYiOiJmbGVldC9JbnRlcm5ldFN0YWNrLWZsZWV0IiwiYXBwbGljYXRpb25JZCI6IiIsInVzZXJDb250ZXh0IjoiIiwibWF4VXNlckR1cmF0aW9uSW5TZWNzIjoiNTc2MDAifQ%3D%3D&signature=d0V4SjMl33wE6jKzWWU6uVkE9CcyfcxHZcL4bcVDK9g%3D',
+        userInterfaceConfig: {
+            
+        },
+        permissions: {
+            [AppStream.Embed.Options.PERMISSIONS]: ['webcam'] , 
+           
         }
-    </script>
+        
+    };
+
+</script>
+
 </body>
 </html>
-
 
 
 
