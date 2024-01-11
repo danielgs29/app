@@ -14,10 +14,10 @@
             justify-content: center;
             height: 100vh;
         }
-    
+
         #appstream-container {
             width: 75%;
-            height: 75vh; /* Ajusta según tus necesidades */
+            height: 75vh;
             overflow: hidden;
         }
     </style>
@@ -25,28 +25,21 @@
     <script type="text/javascript" src="./appstream_embed.js"></script>
 </head>
 <body>
-<div id="appstream-container"></div>
-<script>
-    // Configuración de AppStream Embed
-    const appstreamContainer = document.getElementById('appstream-container');
-    const appstreamOptions = {
-        sessionURL: 'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNTU3MTAyMSIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjI5MjkiLCJjYXRhbG9nU291cmNlIjoic3RhY2svSW50ZXJuZXRTdGFjayIsImZsZWV0UmVmIjoiZmxlZXQvSW50ZXJuZXRTdGFjay1mbGVldCIsImFwcGxpY2F0aW9uSWQiOiIiLCJ1c2VyQ29udGV4dCI6IiIsIm1heFVzZXJEdXJhdGlvbkluU2VjcyI6IjU3NjAwIn0%3D&signature=eCQqilHLln6TY7i1xCPwcO2rtKfymk%2Fy2Wf90s8vXVw%3D',
-        userInterfaceConfig: {
-            
-        },
-        permissions: {
-            [AppStream.Embed.Options.PERMISSIONS]: ['webcam'] , 
-           
-        }
-        
-    };
+    <h1>hola</h1>
+    <div id="appstream-container"></div>
 
-</script>
-
+    <script>
+        // Configuración de AppStream Embed
+        const appstreamContainer = document.getElementById('appstream-container');
+        const appstreamOptions = {
+            sessionURL: 'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNTU3MTAyMSIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjI5MjkiLCJjYXRhbG9nU291cmNlIjoic3RhY2svSW50ZXJuZXRTdGFjayIsImZsZWV0UmVmIjoiZmxlZXQvSW50ZXJuZXRTdGFjay1mbGVldCIsImFwcGxpY2F0aW9uSWQiOiIiLCJ1c2VyQ29udGV4dCI6IiIsIm1heFVzZXJEdXJhdGlvbkluU2VjcyI6IjU3NjAwIn0%3D&signature=eCQqilHLln6TY7i1xCPwcO2rtKfymk%2Fy2Wf90s8vXVw%3D',
+            userInterfaceConfig: {
+                
+            },
+            permissions: {
+                [AppStream.Embed.Options.PERMISSIONS]: ['webcam'] , 
+            }
+        };
+    </script>
 </body>
 </html>
-
-
-
-
-
