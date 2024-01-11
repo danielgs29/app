@@ -24,23 +24,14 @@
 
 <div id="appstream-container"></div>
 
-<script>
-    // Configuración de AppStream Embed
-    const appstreamContainer = document.getElementById('appstream-container');
-    const appstreamOptions = {
-        sessionURL: 'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNDkwNDI4NyIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjY3NiIsImNhdGFsb2dTb3VyY2UiOiJzdGFjay9JbnRlcm5ldFN0YWNrIiwiZmxlZXRSZWYiOiJmbGVldC9JbnRlcm5ldFN0YWNrLWZsZWV0IiwiYXBwbGljYXRpb25JZCI6IiIsInVzZXJDb250ZXh0IjoiIiwibWF4VXNlckR1cmF0aW9uSW5TZWNzIjoiNTc2MDAifQ%3D%3D&signature=d0V4SjMl33wE6jKzWWU6uVkE9CcyfcxHZcL4bcVDK9g%3D',
-        userInterfaceConfig: {
-            // Configuración adicional según tus necesidades   
-        },
-        permissions: {
-            [AppStream.Embed.Options.PERMISSIONS]: ['webcam'] , // Permite el acceso a la cámara
-            // Agrega otras configuraciones de permisos según sea necesario
-        }
-        // ... Otras configuraciones según la documentación
-    };
-
-    // Inicializar AppStream Embed con opciones de interfaz de usuario
-    const appstreamEmbed = new AppStream.Embed("appstream-container", appstreamOptions);
+<iframe
+        id="appstream-iframe"
+        width="800"
+        height="600"
+        src="https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNDk2MDc0OSIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjI4MjgiLCJjYXRhbG9nU291cmNlIjoic3RhY2svSW50ZXJuZXRTdGFjayIsImZsZWV0UmVmIjoiZmxlZXQvSW50ZXJuZXRTdGFjay1mbGVldCIsImFwcGxpY2F0aW9uSWQiOiIiLCJ1c2VyQ29udGV4dCI6IiIsIm1heFVzZXJEdXJhdGlvbkluU2VjcyI6IjU3NjAwIn0%3D&signature=Ti1vWe1ZUMotsMRYLdQU83y3GcTOeZsxDy3pqhf8Beg%3D"
+        frameborder="0"
+        allowfullscreen
+    ></iframe>
 
 </script>
 
