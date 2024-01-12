@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejemplo de carga con Fetch</title>
+  <title>Ejemplo de carga con Fetch (no-cors)</title>
 </head>
 <body>
   <div id="miDiv">
@@ -18,25 +18,20 @@
       // Elemento donde se cargará el contenido
       const miDiv = document.getElementById('miDiv');
 
-      // Realizar la solicitud con fetch
-      fetch(appStreamURL)
+      // Realizar la solicitud con fetch en modo 'no-cors'
+      fetch(appStreamURL, { mode: 'no-cors' })
         .then(response => {
-          if (!response.ok) {
-            throw new Error('La solicitud no fue exitosa');
-          }
-          return response.text();
-        })
-        .then(data => {
-          // Colocar el contenido en el elemento
-          miDiv.innerHTML = data;
+          // Hacer algo con la respuesta si es necesario (limitado en 'no-cors')
+          console.log('Solicitud completada:', response);
         })
         .catch(error => {
-          console.error('Error al cargar contenido:', error);
+          console.error('Error al realizar la solicitud:', error);
         });
     });
   </script>
 </body>
 </html>
+
 
 
 
