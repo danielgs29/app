@@ -1,34 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejemplo de carga con Fetch (no-cors)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con AppStream Embebido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #3498db; /* Color azul de fondo */
+        }
+
+        #container-wrapper {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        #left-blue-bar,
+        #right-blue-bar {
+            width: calc((100% - 75%) / 2); /* Calcula el espacio a ambos lados del contenedor de AppStream */
+            background-color: #3498db; /* Color azul de fondo */
+        }
+
+        #appstream-container {
+            width: 75%;
+            height: 75vh;
+            overflow: hidden;
+        }
+
+        #open-appstream-btn {
+            padding: 10px;
+            background-color: #2ecc71; /* Color verde para el botón */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+    <!-- Incluir el SDK de AppStream Embed -->
+    <script type="text/javascript" src="./appstream_embed.js"></script>
 </head>
 <body>
-  <div id="miDiv">
-    <!-- El contenido se cargará aquí -->
-  </div>
+    <div id="container-wrapper">
+        <div id="left-blue-bar"></div>
+        <div id="appstream-container"></div>
+        <div id="right-blue-bar"></div>
+    </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // URL de AppStream (reemplázala con tu URL real)
-      const appStreamURL = 'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNTU3MTAyMSIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjI5MjkiLCJjYXRhbG9nU291cmNlIjoic3RhY2svSW50ZXJuZXRTdGFjayIsImZsZWV0UmVmIjoiZmxlZXQvSW50ZXJuZXRTdGFjay1mbGVldCIsImFwcGxpY2F0aW9uSWQiOiIiLCJ1c2VyQ29udGV4dCI6IiIsIm1heFVzZXJEdXJhdGlvbkluU2VjcyI6IjU3NjAwIn0%3D&signature=eCQqilHLln6TY7i1xCPwcO2rtKfymk%2Fy2Wf90s8vXVw%3D';
+    <button id="open-appstream-btn" onclick="openAppStreamWindow()">Abrir AppStream</button>
 
-      // Elemento donde se cargará el contenido
-      const miDiv = document.getElementById('miDiv');
+    <script>
+        // Configuración de AppStream Embed
+        const appstreamContainer = document.getElementById('appstream-container');
+        const appstreamOptions = {
+            sessionURL: 'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNTU3MTAyMSIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjI5MjkiLCJjYXRhbG9nU291cmNlIjoic3RhY2svSW50ZXJuZXRTdGFjayIsImZsZWV0UmVmIjoiZmxlZXQvSW50ZXJuZXRTdGFjay1mbGVldCIsImFwcGxpY2F0aW9uSWQiOiIiLCJ1c2VyQ29udGV4dCI6IiIsIm1heFVzZXJEdXJhdGlvbkluU2VjcyI6IjU3NjAwIn0%3D&signature=eCQqilHLln6TY7i1xCPwcO2rtKfymk%2Fy2Wf90s8vXVw%3D',
+            userInterfaceConfig: {},
+            permissions: {
+                [AppStream.Embed.Options.PERMISSIONS]: ['webcam'],
+            },
+        };
 
-      // Realizar la solicitud con fetch en modo 'no-cors'
-      fetch(appStreamURL, { mode: 'no-cors' })
-        .then(response => {
-          // Hacer algo con la respuesta si es necesario (limitado en 'no-cors')
-          console.log('Solicitud completada:', response);
-        })
-        .catch(error => {
-          console.error('Error al realizar la solicitud:', error);
-        });
-    });
-  </script>
+        // Inicializar AppStream Embed con opciones de interfaz de usuario
+        const appstreamEmbed = new AppStream.Embed("appstream-container", appstreamOptions);
+
+        // Función para abrir una nueva ventana de AppStream
+        function openAppStreamWindow() {
+            const appstreamWindow = window.open('https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNTU3MTAyMSIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjI5MjkiLCJjYXRhbG9nU291cmNlIjoic3RhY2svSW50ZXJuZXRTdGFjayIsImZsZWV0UmVmIjoiZmxlZXQvSW50ZXJuZXRTdGFjay1mbGVldCIsImFwcGxpY2F0aW9uSWQiOiIiLCJ1c2VyQ29udGV4dCI6IiIsIm1heFVzZXJEdXJhdGlvbkluU2VjcyI6IjU3NjAwIn0%3D&signature=eCQqilHLln6TY7i1xCPwcO2rtKfymk%2Fy2Wf90s8vXVw%3D','AppStream Window','width=800,height=600');
+        }
+    </script>
 </body>
 </html>
 
