@@ -3,26 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejemplo de carga de AppStream con jQuery</title>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $("#miDiv").load("https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNTU3MTAyMSIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjI5MjkiLCJjYXRhbG9nU291cmNlIjoic3RhY2svSW50ZXJuZXRTdGFjayIsImZsZWV0UmVmIjoiZmxlZXQvSW50ZXJuZXRTdGFjay1mbGVldCIsImFwcGxpY2F0aW9uSWQiOiIiLCJ1c2VyQ29udGV4dCI6IiIsIm1heFVzZXJEdXJhdGlvbkluU2VjcyI6IjU3NjAwIn0%3D&signature=eCQqilHLln6TY7i1xCPwcO2rtKfymk%2Fy2Wf90s8vXVw%3D", function(response, status, xhr) {
-        if (status == "success") {
-          console.log("Carga completada con éxito");
-        } else {
-          console.log("Error al cargar: " + status);
-        }
-      });
-    });
-  </script>
+  <title>Ejemplo de carga con Fetch</title>
 </head>
 <body>
   <div id="miDiv">
-    <!-- El contenido de AppStream se cargará aquí -->
+    <!-- El contenido se cargará aquí -->
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // URL de AppStream (reemplázala con tu URL real)
+      const appStreamURL = 'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNTU3MTAyMSIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjI5MjkiLCJjYXRhbG9nU291cmNlIjoic3RhY2svSW50ZXJuZXRTdGFjayIsImZsZWV0UmVmIjoiZmxlZXQvSW50ZXJuZXRTdGFjay1mbGVldCIsImFwcGxpY2F0aW9uSWQiOiIiLCJ1c2VyQ29udGV4dCI6IiIsIm1heFVzZXJEdXJhdGlvbkluU2VjcyI6IjU3NjAwIn0%3D&signature=eCQqilHLln6TY7i1xCPwcO2rtKfymk%2Fy2Wf90s8vXVw%3D';
+
+      // Elemento donde se cargará el contenido
+      const miDiv = document.getElementById('miDiv');
+
+      // Realizar la solicitud con fetch
+      fetch(appStreamURL)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('La solicitud no fue exitosa');
+          }
+          return response.text();
+        })
+        .then(data => {
+          // Colocar el contenido en el elemento
+          miDiv.innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error al cargar contenido:', error);
+        });
+    });
+  </script>
 </body>
 </html>
+
 
 
 
