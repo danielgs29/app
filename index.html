@@ -3,35 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AppStream Example</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://docs.aws.amazon.com/appstream/latest/developerguide/developerguide/appstream-javascript-sdk.js"></script>
-</head>
-<body>
-
-  <h1>Amazon AppStream Example</h1>
-  <div id="appstream-container" style="width: 100%; height: 600px;"></div>
-
+  <title>Ejemplo de carga de AppStream con jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script>
-    $(document).ready(function () {
-      // URL de streaming de AppStream
-      var appstreamUrl = 'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNTU3MTAyMSIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjI5MjkiLCJjYXRhbG9nU291cmNlIjoic3RhY2svSW50ZXJuZXRTdGFjayIsImZsZWV0UmVmIjoiZmxlZXQvSW50ZXJuZXRTdGFjay1mbGVldCIsImFwcGxpY2F0aW9uSWQiOiIiLCJ1c2VyQ29udGV4dCI6IiIsIm1heFVzZXJEdXJhdGlvbkluU2VjcyI6IjU3NjAwIn0%3D&signature=eCQqilHLln6TY7i1xCPwcO2rtKfymk%2Fy2Wf90s8vXVw%3D'; // Reemplaza con tu URL de AppStream
-
-      // Crear el reproductor de AppStream
-      var appstreamPlayer = '<div id="appstream-player" style="width: 100%; height: 600px;"></div>';
-      $('#appstream-container').append(appstreamPlayer);
-
-      // Configurar el reproductor con la URL de streaming de AppStream
-      AppStream.createAppStreamPlayer({
-        "url": appstreamUrl,
-        "element": document.getElementById("appstream-player"),
-        "autoplay": true
+    $(document).ready(function() {
+      $("#miDiv").load("https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNTU3MTAyMSIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjI5MjkiLCJjYXRhbG9nU291cmNlIjoic3RhY2svSW50ZXJuZXRTdGFjayIsImZsZWV0UmVmIjoiZmxlZXQvSW50ZXJuZXRTdGFjay1mbGVldCIsImFwcGxpY2F0aW9uSWQiOiIiLCJ1c2VyQ29udGV4dCI6IiIsIm1heFVzZXJEdXJhdGlvbkluU2VjcyI6IjU3NjAwIn0%3D&signature=eCQqilHLln6TY7i1xCPwcO2rtKfymk%2Fy2Wf90s8vXVw%3D", function(response, status, xhr) {
+        if (status == "success") {
+          console.log("Carga completada con éxito");
+        } else {
+          console.log("Error al cargar: " + status);
+        }
       });
     });
   </script>
-
+</head>
+<body>
+  <div id="miDiv">
+    <!-- El contenido de AppStream se cargará aquí -->
+  </div>
 </body>
 </html>
+
+
 
 
 
