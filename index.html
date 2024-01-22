@@ -58,23 +58,7 @@
     <button id="call-lambda-btn" onclick="callLambdaFunction()">Llamar a Lambda</button>
 
     <script>
-        // Configuración de AppStream Embed
-        const appstreamContainer = document.getElementById('appstream-container');
-        const appstreamOptions = {
-            sessionURL: 'https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNTU3MTAyMSIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjI5MjkiLCJjYXRhbG9nU291cmNlIjoic3RhY2svSW50ZXJuZXRTdGFjayIsImZsZWV0UmVmIjoiZmxlZXQvSW50ZXJuZXRTdGFjay1mbGVldCIsImFwcGxpY2F0aW9uSWQiOiIiLCJ1c2VyQ29udGV4dCI6IiIsIm1heFVzZXJEdXJhdGlvbkluU2VjcyI6IjU3NjAwIn0%3D&signature=eCQqilHLln6TY7i1xCPwcO2rtKfymk%2Fy2Wf90s8vXVw%3D',
-            userInterfaceConfig: {},
-            permissions: {
-                [AppStream.Embed.Options.PERMISSIONS]: ['webcam'],
-            },
-        };
-
-        // Inicializar AppStream Embed con opciones de interfaz de usuario
-        const appstreamEmbed = new AppStream.Embed("appstream-container", appstreamOptions);
-
-        // Función para abrir una nueva ventana de AppStream sin controles
-        function openAppStreamWindow() {
-            const appstreamWindow = window.open('https://appstream2.eu-west-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTcwNTU3MTAyMSIsImF3c0FjY291bnRJZCI6IjY0MzkyNjIxMzA3OSIsInVzZXJJZCI6IjI5MjkiLCJjYXRhbG9nU291cmNlIjoic3RhY2svSW50ZXJuZXRTdGFjayIsImZsZWV0UmVmIjoiZmxlZXQvSW50ZXJuZXRTdGFjay1mbGVldCIsImFwcGxpY2F0aW9uSWQiOiIiLCJ1c2VyQ29udGV4dCI6IiIsIm1heFVzZXJEdXJhdGlvbkluU2VjcyI6IjU3NjAwIn0%3D&signature=eCQqilHLln6TY7i1xCPwcO2rtKfymk%2Fy2Wf90s8vXVw%3D', 'width=800,height=600,toolbar=no,location=no,scrollbars=no');
-        }
+        // Configuración de AppStream Embed (código existente)
 
         // Función para llamar a la función Lambda a través de API Gateway
         async function callLambdaFunction() {
@@ -100,6 +84,9 @@
 
                 // Puedes manejar la respuesta según tus necesidades
                 console.log('Respuesta de la función Lambda:', responseData);
+
+                // Imprimir el resultado en la consola del navegador
+                console.log('Resultado de la función Lambda:', responseData);
             } catch (error) {
                 console.error('Error al llamar a la función Lambda:', error);
             }
@@ -107,6 +94,7 @@
     </script>
 </body>
 </html>
+
 
 
 
