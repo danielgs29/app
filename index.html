@@ -78,33 +78,43 @@
 
         // Función para llamar a la función Lambda a través de API Gateway
         async function callLambdaFunction() {
-            try {
-                // Configurar la URL de la API Gateway
-                const apiUrl = 'https://302aqlzcl8.execute-api.eu-west-1.amazonaws.com/stage1/user/signup';
+    try {
+        // Configurar la URL de la API Gateway
+        const apiUrl = 'https://302aqlzcl8.execute-api.eu-west-1.amazonaws.com/stage1/user/signup';
 
-                // Configurar la clave de API
-                const apiKey = 'MNyAWq4OrjSWsiobNpNz2RKDUiJ1V233GeSntmgf';
+        // Configurar la clave de API
+        const apiKey = 'MNyAWq4OrjSWsiobNpNz2RKDUiJ1V233GeSntmgf';
 
-                // Configurar las opciones de la solicitud
-                const requestOptions = {
-                    method: 'POST',
-                    headers: {
-                        'User-Agent':"*",
-                        'Content-Type': 'application/json',
-                        'x-api-key': apiKey,
-                    },
-                };
+        // Configurar el cuerpo del mensaje (body)
+        const requestBody = {
+            email: 'daniel@gdgdh.com',
+            password: '12345678',
+            givenname: 'Daniel',
+            familyname: 'Gomez'
+        };
 
-                // Realizar la solicitud a la API Gateway
-                const response = await fetch(apiUrl, requestOptions);
-                const responseData = await response.json();
+        // Configurar las opciones de la solicitud
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'User-Agent': '*',
+                'Content-Type': 'application/json',
+                'x-api-key': apiKey,
+            },
+            body: JSON.stringify(requestBody), // Convertir el objeto a JSON
+        };
 
-                // Puedes manejar la respuesta según tus necesidades
-                console.log(responseData);
-            } catch (error) {
-                console.error('Error al llamar a la función Lambda:', error);
-            }
-        }
+        // Realizar la solicitud a la API Gateway
+        const response = await fetch(apiUrl, requestOptions);
+        const responseData = await response.json();
+
+        // Puedes manejar la respuesta según tus necesidades
+        console.log(responseData);
+    } catch (error) {
+        console.error('Error al llamar a la función Lambda:', error);
+    }
+}
+
     </script>
 </body>
 </html>
