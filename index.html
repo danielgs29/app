@@ -83,7 +83,7 @@
         const apiUrl = 'https://302aqlzcl8.execute-api.eu-west-1.amazonaws.com/stage1/user/signup';
 
         
-        const apiKey = 'MNyAWq4OrjSWsiobNpNz2RKDUiJ1V233GeSntmgf';
+        //const apiKey = 'MNyAWq4OrjSWsiobNpNz2RKDUiJ1V233GeSntmgf';
 
         
         const requestBody = {
@@ -99,13 +99,10 @@
             headers: {
                 'User-Agent': '*',
                 'Content-Type': 'application/json',
-                'x-api-key': apiKey,
-                'Access-Control-Allow-Origin': "*", // Required for CORS support to work
+                //'x-api-key': apiKey,
+                "Access-Control-Allow-Origin": "*", // Required for CORS support to work
                 'Access-Control-Allow-Headers':'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
                 "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
-            },
-            Auth:{ 
-                'AddDefaultAuthorizerToCorsPreflight':false,
             },
             body: JSON.stringify(requestBody),
         };
