@@ -87,7 +87,7 @@
 
         // Configurar el cuerpo del mensaje (body)
         const requestBody = {
-            email: 'daniel@gdgdh.com',
+            email: 'daniel@gdgdhgs.com',
             password: '12345678',
             givenname: 'Daniel',
             familyname: 'Gomez'
@@ -101,14 +101,13 @@
                 'Content-Type': 'application/json',
                 'x-api-key': apiKey,
             },
-            body: JSON.stringify(requestBody), // Convertir el objeto a JSON
+            body: JSON.stringify(requestBody),
         };
 
         // Realizar la solicitud a la API Gateway
         const response = await fetch(apiUrl, requestOptions);
         const responseData = await response.json();
 
-        // Puedes manejar la respuesta según tus necesidades
         console.log(responseData);
     } catch (error) {
         console.error('Error al llamar a la función Lambda:', error);
