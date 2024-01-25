@@ -101,6 +101,7 @@
                 'Content-Type': 'application/json',
                 'x-api-key': apiKey,
                 "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+                'Access-Control-Allow-Headers':'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
                 "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
             },
             body: JSON.stringify(requestBody),
