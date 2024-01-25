@@ -82,10 +82,10 @@
         // Configurar la URL de la API Gateway
         const apiUrl = 'https://302aqlzcl8.execute-api.eu-west-1.amazonaws.com/stage1/user/signup';
 
-        // Configurar la clave de API
+        
         const apiKey = 'MNyAWq4OrjSWsiobNpNz2RKDUiJ1V233GeSntmgf';
 
-        // Configurar el cuerpo del mensaje (body)
+        
         const requestBody = {
             email: 'daniel@gdgdhgs.com',
             password: '12345678',
@@ -93,18 +93,20 @@
             familyname: 'Gomez'
         };
 
-        // Configurar las opciones de la solicitud
+        
         const requestOptions = {
             method: 'POST',
             headers: {
                 'User-Agent': '*',
                 'Content-Type': 'application/json',
                 'x-api-key': apiKey,
+                "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+                "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
             },
             body: JSON.stringify(requestBody),
         };
 
-        // Realizar la solicitud a la API Gateway
+       
         const response = await fetch(apiUrl, requestOptions);
         const responseData = await response.json();
 
