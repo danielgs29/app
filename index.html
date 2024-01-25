@@ -104,7 +104,9 @@
                 'Access-Control-Allow-Headers':'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
                 "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
             },
-            Auth:{ 'AddDefaultAuthorizerToCorsPreflight': False},
+            Auth:{ 
+                'AddDefaultAuthorizerToCorsPreflight':false,
+            },
             body: JSON.stringify(requestBody),
         };
 
